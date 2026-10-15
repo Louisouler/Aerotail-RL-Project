@@ -1,0 +1,7 @@
+
+loaded ClockSpeed: 2
+idle sim/wall ratio: 1.999
+ep0: 289 steps,  14.1 steps/s wall, reset 1.71s, collided=True | sim time/step  118.6±177.3 ms (dt=100) | wall/step  59.3 ms | sim/wall during episode 2.00
+ep1: 300 steps,  15.0 steps/s wall, reset 1.65s, collided=False | sim time/step  119.4±180.0 ms (dt=100) | wall/step  59.7 ms | sim/wall during episode 2.00
+ep2: 300 steps,  15.0 steps/s wall, reset 1.70s, collided=False | sim time/step  119.3±180.2 ms (dt=100) | wall/step  59.7 ms | sim/wall during episode 2.00
+MEAN steps/s 14.7

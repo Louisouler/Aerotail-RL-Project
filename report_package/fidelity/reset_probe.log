@@ -1,0 +1,76 @@
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+
+=== RESET: 1. first reset after fresh AirSim launch ===
+   [  0.001s] before simSetVehiclePose           landed=Landed alt= -0.67 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=False coll=(True,Ground_3,1790967565431990016)
+     simSetVehiclePose took 0.000s
+   [  0.003s] after simSetVehiclePose            landed=Landed alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=False coll=(False,Ground_3,1790967565431990016)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [  0.004s] after armDisarm (= before takeoff) landed=Landed alt= -0.00 vel=( 0.00, 0.00, 0.01) |v|=0.013 api=True coll=(False,Ground_3,1790967565431990016)
+     takeoffAsync().join() took 1.702s  result=False  server_error=None
+   [  1.708s] after takeoff join                 landed=Flying alt=  1.54 vel=( 0.00, 0.00, 0.02) |v|=0.017 api=True coll=(False,Ground_3,1790967565431990016)
+   env.reset() total 1.709s; collision baseline=1790967565431990016
+   episode 'hover (zero action) -> normal completion': 300 steps, terminated=False truncated=True collision_obj=None final_alt=1.41
+   [ 17.918s] end of episode                     landed=Flying alt=  1.41 vel=( 0.00, 0.00, 0.00) |v|=0.003 api=True coll=(False,Ground_3,1790967565431990016)
+
+=== RESET: 2. after normal completed (truncated) episode ===
+   [ 17.919s] before simSetVehiclePose           landed=Flying alt=  1.41 vel=( 0.00, 0.00, 0.00) |v|=0.003 api=True coll=(False,Ground_3,1790967565431990016)
+     simSetVehiclePose took 0.000s
+   [ 17.920s] after simSetVehiclePose            landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.003 api=True coll=(False,Ground_3,1790967565431990016)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [ 17.922s] after armDisarm (= before takeoff) landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.003 api=True coll=(False,Ground_3,1790967565431990016)
+     takeoffAsync().join() took 1.702s  result=False  server_error=None
+   [ 19.626s] after takeoff join                 landed=Flying alt=  1.54 vel=( 0.00, 0.00, 0.02) |v|=0.018 api=True coll=(False,Ground_3,1790967565431990016)
+   env.reset() total 1.710s; collision baseline=1790967565431990016
+   episode 'descend (vz=+1) -> collision': 10 steps, terminated=True truncated=False collision_obj=Ground_3 final_alt=-0.68
+   [ 20.169s] end of episode                     landed=Flying alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967691227673600)
+
+=== RESET: 3. after collision episode ===
+   [ 20.170s] before simSetVehiclePose           landed=Flying alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967691227673600)
+     simSetVehiclePose took 0.000s
+   [ 20.171s] after simSetVehiclePose            landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967691227673600)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [ 20.173s] after armDisarm (= before takeoff) landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.01) |v|=0.007 api=True coll=(False,Ground_3,1790967691227673600)
+     takeoffAsync().join() took 1.702s  result=False  server_error=None
+   [ 21.876s] after takeoff join                 landed=Flying alt=  1.54 vel=( 0.00, 0.00, 0.02) |v|=0.018 api=True coll=(False,Ground_3,1790967691227673600)
+   env.reset() total 1.709s; collision baseline=1790967691227673600
+   episode 'hover': 30 steps, terminated=False truncated=False collision_obj=None final_alt=1.50
+   [ 23.500s] end of episode                     landed=Flying alt=  1.50 vel=( 0.00, 0.00, 0.00) |v|=0.004 api=True coll=(False,Ground_3,1790967691227673600)
+
+=== MANUAL: A. immediate takeoff after collision (replicates env.reset) ===
+   episode 'descend -> collision': 10 steps, terminated=True truncated=False collision_obj=Ground_3 final_alt=-0.68
+   [ 24.041s] end of episode                     landed=Flying alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967698964838656)
+   [ 24.043s] after teleport+api+arm             landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967698964838656)
+     takeoff join 1.702s result=False server_error=None
+   [ 25.746s] after takeoff                      landed=Flying alt=  1.54 vel=( 0.00, 0.00, 0.02) |v|=0.018 api=True coll=(False,Ground_3,1790967698964838656)
+
+=== MANUAL: B. wait 0.5s before takeoff ===
+   episode 'descend -> collision': 10 steps, terminated=True truncated=False collision_obj=Ground_3 final_alt=-0.68
+   [ 26.287s] end of episode                     landed=Flying alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967703458934528)
+   [ 26.289s] after teleport+api+arm             landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967703458934528)
+   [ 26.791s] after waiting 0.5s                 landed=Landed alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(True,Ground_3,1790967703941944832)
+     takeoff join 1.701s result=False server_error=None
+   [ 28.493s] after takeoff                      landed=Flying alt=  0.86 vel=( 0.00, 0.00, 0.02) |v|=0.018 api=True coll=(False,Ground_3,1790967703941944832)
+
+=== MANUAL: C. wait 2.0s before takeoff ===
+   episode 'descend -> collision': 8 steps, terminated=True truncated=False collision_obj=Ground_3 final_alt=-0.68
+   [ 28.927s] end of episode                     landed=Flying alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967708775047936)
+   [ 28.929s] after teleport+api+arm             landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967708775047936)
+   [ 30.931s] after waiting 2.0s                 landed=Landed alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(True,Ground_3,1790967709216057344)
+     takeoff join 1.701s result=False server_error=None
+   [ 32.633s] after takeoff                      landed=Flying alt=  0.86 vel=( 0.00, 0.00, 0.02) |v|=0.018 api=True coll=(False,Ground_3,1790967709216057344)
+
+=== MANUAL: D. poll until |v|<=0.05 then takeoff ===
+   episode 'descend -> collision': 8 steps, terminated=True truncated=False collision_obj=Ground_3 final_alt=-0.68
+   [ 33.067s] end of episode                     landed=Flying alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967717052224512)
+   [ 33.069s] after teleport+api+arm             landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=True coll=(False,Ground_3,1790967717052224512)
+   [ 33.070s] polling                            landed=Flying alt= -0.00 vel=( 0.00, 0.00, 0.01) |v|=0.007 api=True coll=(False,Ground_3,1790967717052224512)
+     still after 0.00s
+     takeoff join 1.702s result=False server_error=None
+   [ 34.773s] after takeoff                      landed=Flying alt=  1.54 vel=( 0.00, 0.00, 0.02) |v|=0.018 api=True coll=(False,Ground_3,1790967717052224512)
+
+closed

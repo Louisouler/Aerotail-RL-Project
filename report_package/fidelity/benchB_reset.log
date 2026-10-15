@@ -1,0 +1,4 @@
+current reset (wait until still)   reset mean 5.67s  median 5.67s  min 5.64  max 5.68 | start alt min 1.53 max 1.53 (failed takeoffs <0.5m: 0) | speed at episode end 2.92 m/s | live step rate 18.5/s
+B: teleport with zeroed velocity   reset mean 1.68s  median 1.70s  min 1.62  max 1.71 | start alt min 1.54 max 1.54 (failed takeoffs <0.5m: 0) | speed at episode end 2.92 m/s | live step rate 18.5/s
+first-observation difference between variants (same seeds): max |dobs| = 0.0899  mean = 0.0098
+saved per reset: 3.99s

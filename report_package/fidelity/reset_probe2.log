@@ -1,0 +1,122 @@
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+
+=== RESET: 0. warm-up reset ===
+   [  0.001s] before simSetVehiclePose           landed=Landed alt= -0.68 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=False coll=(True,Ground_3,1790967721216313344)
+     simSetVehiclePose took 0.000s
+   [  0.002s] after simSetVehiclePose            landed=Landed alt= -0.00 vel=( 0.00, 0.00, 0.00) |v|=0.000 api=False coll=(False,Ground_3,1790967721216313344)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [  0.004s] after armDisarm (= before takeoff) landed=Landed alt= -0.00 vel=( 0.00, 0.00, 0.01) |v|=0.015 api=True coll=(False,Ground_3,1790967721216313344)
+     takeoffAsync().join() took 1.701s  result=False  server_error=None
+   [  1.706s] after takeoff join                 landed=Flying alt=  1.54 vel=( 0.00, 0.00, 0.02) |v|=0.017 api=True coll=(False,Ground_3,1790967721216313344)
+   env.reset() total 1.708s; collision baseline=1790967721216313344
+   episode 'forward 2.5 m/s, truncated while moving': 48 steps, terminated=True truncated=False collision_obj=Target2 final_alt=1.80
+   [  4.355s] end of episode                     landed=Flying alt=  1.80 vel=( 1.05, 0.07, 0.00) |v|=1.048 api=True coll=(True,Target2,1790967774005439488)
+
+=== RESET: 4. after episode truncated WHILE MOVING ===
+   [  4.357s] before simSetVehiclePose           landed=Flying alt=  1.80 vel=( 1.05, 0.07, 0.00) |v|=1.049 api=True coll=(True,Target2,1790967774011439616)
+     simSetVehiclePose took 0.000s
+   [  4.360s] after simSetVehiclePose            landed=Flying alt= -0.00 vel=( 1.02, 0.07,-0.01) |v|=1.019 api=True coll=(False,Target2,1790967774011439616)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [  4.362s] after armDisarm (= before takeoff) landed=Flying alt=  0.00 vel=( 1.02, 0.07,-0.01) |v|=1.019 api=True coll=(False,Target2,1790967774011439616)
+     takeoffAsync().join() took 0.000s  result=None  server_error=RPCError("rpclib: function 'takeoff' (called with 2 arg(s)) threw an exception. The exception is not derived from std::exception. No further information availab
+   [  4.365s] after takeoff join                 landed=Flying alt=  0.00 vel=( 1.02, 0.07,-0.02) |v|=1.019 api=True coll=(False,Target2,1790967774011439616)
+   env.reset() total 0.011s; collision baseline=1790967774011439616
+   episode 'hover 20 steps': 20 steps, terminated=False truncated=False collision_obj=None final_alt=-0.03
+   [  5.479s] end of episode                     landed=Flying alt= -0.03 vel=( 0.06, 0.00, 0.01) |v|=0.060 api=True coll=(False,Target2,1790967774011439616)
+   episode 'diagonal dive (fwd+down) -> collision while moving': 6 steps, terminated=True truncated=False collision_obj=Ground_4 final_alt=-0.53
+   [  5.806s] end of episode                     landed=Flying alt= -0.53 vel=( 0.91,-0.03,-0.16) |v|=0.921 api=True coll=(False,Ground_4,1790967776849500160)
+
+=== RESET: 5. after collision WHILE MOVING ===
+   [  5.807s] before simSetVehiclePose           landed=Flying alt= -0.53 vel=( 0.91,-0.03,-0.14) |v|=0.926 api=True coll=(False,Ground_4,1790967776849500160)
+     simSetVehiclePose took 0.000s
+   [  5.809s] after simSetVehiclePose            landed=Flying alt= -0.00 vel=( 0.92,-0.03,-0.13) |v|=0.930 api=True coll=(False,Ground_4,1790967776849500160)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [  5.810s] after armDisarm (= before takeoff) landed=Flying alt=  0.00 vel=( 0.92,-0.03,-0.11) |v|=0.932 api=True coll=(False,Ground_4,1790967776849500160)
+     takeoffAsync().join() took 0.000s  result=None  server_error=RPCError("rpclib: function 'takeoff' (called with 2 arg(s)) threw an exception. The exception is not derived from std::exception. No further information availab
+   [  5.812s] after takeoff join                 landed=Flying alt=  0.00 vel=( 0.92,-0.03,-0.10) |v|=0.930 api=True coll=(False,Ground_4,1790967776849500160)
+   env.reset() total 0.007s; collision baseline=1790967776849500160
+   episode 'hover 20 steps': 20 steps, terminated=False truncated=False collision_obj=None final_alt=-0.04
+   [  6.894s] end of episode                     landed=Flying alt= -0.04 vel=( 0.06,-0.00, 0.01) |v|=0.059 api=True coll=(False,Ground_4,1790967776849500160)
+   episode 'yawing + forward, truncated while turning': 280 steps, terminated=False truncated=True collision_obj=None final_alt=6.49
+   [ 22.028s] end of episode                     landed=Flying alt=  6.49 vel=(-2.92,-0.07,-0.21) |v|=2.932 api=True coll=(False,Ground_4,1790967776849500160)
+
+=== RESET: 6. after truncation while turning ===
+   [ 22.029s] before simSetVehiclePose           landed=Flying alt=  6.49 vel=(-2.92,-0.07,-0.21) |v|=2.932 api=True coll=(False,Ground_4,1790967776849500160)
+     simSetVehiclePose took 0.000s
+   [ 22.031s] after simSetVehiclePose            landed=Flying alt= -0.00 vel=(-2.92,-0.07,-0.21) |v|=2.932 api=True coll=(False,Ground_4,1790967776849500160)
+     enableApiControl(True) -> None in 0.000s
+     armDisarm(True) -> True in 0.000s
+   [ 22.032s] after armDisarm (= before takeoff) landed=Flying alt=  0.00 vel=(-2.92,-0.08,-0.21) |v|=2.931 api=True coll=(False,Ground_4,1790967776849500160)
+     takeoffAsync().join() took 0.000s  result=None  server_error=RPCError("rpclib: function 'takeoff' (called with 2 arg(s)) threw an exception. The exception is not derived from std::exception. No further information availab
+   [ 22.034s] after takeoff join                 landed=Flying alt=  0.00 vel=(-2.92,-0.08,-0.21) |v|=2.931 api=True coll=(False,Ground_4,1790967776849500160)
+   env.reset() total 0.007s; collision baseline=1790967776849500160
+
+=== MANUAL: E. moving end -> immediate takeoff (as env.reset) ===
+   episode 'hover 20': 20 steps, terminated=False truncated=False collision_obj=None final_alt=0.34
+   [ 23.117s] end of episode                     landed=Flying alt=  0.34 vel=(-0.18,-0.00, 0.01) |v|=0.177 api=True coll=(False,Ground_4,1790967776849500160)
+   episode 'forward, truncated moving': 280 steps, terminated=False truncated=True collision_obj=None final_alt=0.60
+   [ 38.247s] end of episode                     landed=Flying alt=  0.60 vel=( 2.44, 0.34, 0.00) |v|=2.465 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.249s] after teleport+api+arm             landed=Flying alt= -0.00 vel=( 2.44, 0.34, 0.00) |v|=2.465 api=True coll=(False,Ground_4,1790967776849500160)
+     takeoff join 0.000s result=None server_error=RPCError("rpclib: function 'takeoff' (called with 2 arg(s)) threw an exception. The exception is not derived from std::exception. No further information available.")
+   [ 38.250s] after takeoff                      landed=Flying alt= -0.00 vel=( 2.44, 0.34, 0.00) |v|=2.465 api=True coll=(False,Ground_4,1790967776849500160)
+
+=== MANUAL: F. moving end -> poll until |v|<=0.05 -> takeoff ===
+   episode 'hover 20': 1 steps, terminated=False truncated=True collision_obj=None final_alt=-0.00
+   [ 38.306s] end of episode                     landed=Flying alt= -0.00 vel=( 2.36, 0.33,-0.07) |v|=2.384 api=True coll=(False,Ground_4,1790967776849500160)
+   episode 'forward, truncated moving': 1 steps, terminated=False truncated=True collision_obj=None final_alt=-0.00
+   [ 38.361s] end of episode                     landed=Flying alt= -0.00 vel=( 2.25, 0.31, 0.06) |v|=2.272 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.363s] after teleport+api+arm             landed=Flying alt= -0.00 vel=( 2.25, 0.31, 0.06) |v|=2.270 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.364s] polling                            landed=Flying alt= -0.00 vel=( 2.25, 0.31, 0.06) |v|=2.269 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.416s] polling                            landed=Flying alt= -0.03 vel=( 2.24, 0.30, 0.39) |v|=2.293 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.467s] polling                            landed=Flying alt= -0.04 vel=( 2.07, 0.28,-0.16) |v|=2.092 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.519s] polling                            landed=Flying alt= -0.01 vel=( 1.81, 0.25,-0.37) |v|=1.869 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.570s] polling                            landed=Flying alt=  0.03 vel=( 1.56, 0.21,-0.38) |v|=1.615 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.622s] polling                            landed=Flying alt=  0.06 vel=( 1.30, 0.18,-0.30) |v|=1.341 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.673s] polling                            landed=Flying alt=  0.09 vel=( 1.03, 0.14,-0.19) |v|=1.053 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.725s] polling                            landed=Flying alt=  0.10 vel=( 0.77, 0.11,-0.08) |v|=0.780 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.776s] polling                            landed=Flying alt=  0.10 vel=( 0.52, 0.07, 0.02) |v|=0.521 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.828s] polling                            landed=Flying alt=  0.10 vel=( 0.26, 0.04, 0.10) |v|=0.283 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.879s] polling                            landed=Flying alt=  0.08 vel=( 0.03, 0.00, 0.15) |v|=0.152 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.931s] polling                            landed=Flying alt=  0.07 vel=(-0.19,-0.03, 0.18) |v|=0.259 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 38.982s] polling                            landed=Flying alt=  0.05 vel=(-0.39,-0.05, 0.19) |v|=0.436 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.034s] polling                            landed=Flying alt=  0.03 vel=(-0.56,-0.08, 0.18) |v|=0.598 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.085s] polling                            landed=Flying alt=  0.01 vel=(-0.71,-0.10, 0.16) |v|=0.740 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.136s] polling                            landed=Flying alt= -0.00 vel=(-0.84,-0.12, 0.13) |v|=0.858 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.188s] polling                            landed=Flying alt= -0.02 vel=(-0.94,-0.13, 0.10) |v|=0.953 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.239s] polling                            landed=Flying alt= -0.02 vel=(-1.01,-0.14, 0.06) |v|=1.020 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.291s] polling                            landed=Flying alt= -0.03 vel=(-1.05,-0.14, 0.03) |v|=1.062 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.342s] polling                            landed=Flying alt= -0.03 vel=(-1.07,-0.15,-0.01) |v|=1.080 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.394s] polling                            landed=Flying alt= -0.03 vel=(-1.06,-0.15,-0.03) |v|=1.075 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.446s] polling                            landed=Flying alt= -0.02 vel=(-1.04,-0.14,-0.05) |v|=1.049 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.497s] polling                            landed=Flying alt= -0.02 vel=(-0.99,-0.14,-0.06) |v|=1.003 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.548s] polling                            landed=Flying alt= -0.01 vel=(-0.93,-0.13,-0.06) |v|=0.943 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.600s] polling                            landed=Flying alt= -0.00 vel=(-0.86,-0.12,-0.06) |v|=0.870 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.651s] polling                            landed=Flying alt=  0.00 vel=(-0.77,-0.11,-0.05) |v|=0.784 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.703s] polling                            landed=Flying alt=  0.01 vel=(-0.68,-0.09,-0.04) |v|=0.693 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.755s] polling                            landed=Flying alt=  0.01 vel=(-0.59,-0.08,-0.03) |v|=0.594 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.807s] polling                            landed=Flying alt=  0.01 vel=(-0.49,-0.07,-0.02) |v|=0.495 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.858s] polling                            landed=Flying alt=  0.01 vel=(-0.39,-0.05,-0.00) |v|=0.396 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.910s] polling                            landed=Flying alt=  0.01 vel=(-0.29,-0.04, 0.01) |v|=0.296 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 39.961s] polling                            landed=Flying alt=  0.01 vel=(-0.20,-0.03, 0.02) |v|=0.202 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 40.013s] polling                            landed=Flying alt=  0.01 vel=(-0.11,-0.01, 0.02) |v|=0.112 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 40.064s] polling                            landed=Flying alt=  0.01 vel=(-0.03,-0.00, 0.03) |v|=0.039 api=True coll=(False,Ground_4,1790967776849500160)
+     still after 1.70s
+     takeoff join 1.702s result=False server_error=None
+   [ 41.768s] after takeoff                      landed=Flying alt=  1.54 vel=(-0.03,-0.00, 0.02) |v|=0.037 api=True coll=(False,Ground_4,1790967776849500160)
+
+=== MANUAL: G. moving end -> fixed 0.2s wait -> takeoff ===
+   episode 'hover 20': 1 steps, terminated=False truncated=True collision_obj=None final_alt=1.54
+   [ 41.824s] end of episode                     landed=Flying alt=  1.54 vel=(-0.03,-0.00, 0.03) |v|=0.044 api=True coll=(False,Ground_4,1790967776849500160)
+   episode 'forward, truncated moving': 1 steps, terminated=False truncated=True collision_obj=None final_alt=1.54
+   [ 41.879s] end of episode                     landed=Flying alt=  1.54 vel=( 0.06,-0.00,-0.14) |v|=0.151 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 41.882s] after teleport+api+arm             landed=Flying alt=  0.00 vel=( 0.06,-0.00,-0.16) |v|=0.169 api=True coll=(False,Ground_4,1790967776849500160)
+   [ 42.084s] after 0.2s                         landed=Flying alt= -0.02 vel=( 0.06,-0.00, 0.02) |v|=0.062 api=True coll=(False,Ground_4,1790967776849500160)
+     takeoff join 0.000s result=None server_error=RPCError("rpclib: function 'takeoff' (called with 2 arg(s)) threw an exception. The exception is not derived from std::exception. No further information available.")
+   [ 42.086s] after takeoff                      landed=Flying alt= -0.02 vel=( 0.06,-0.00, 0.02) |v|=0.062 api=True coll=(False,Ground_4,1790967776849500160)
+
+closed

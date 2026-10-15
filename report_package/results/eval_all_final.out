@@ -1,0 +1,254 @@
+
+--- Evaluating sac stage 0 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/sac_stage0/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   552.6 centring=0.148 dist_err=0.946 visibility=1.00 collided=False
+  episode  1: steps=300 reward=   525.1 centring=0.275 dist_err=1.022 visibility=1.00 collided=False
+  episode  2: steps=300 reward=   545.3 centring=0.270 dist_err=0.622 visibility=1.00 collided=False
+  episode  3: steps=178 reward=   303.9 centring=0.338 dist_err=0.827 visibility=1.00 collided=True
+  episode  4: steps=300 reward=   532.6 centring=0.299 dist_err=0.926 visibility=1.00 collided=False
+  episode  5: steps=300 reward=   548.3 centring=0.216 dist_err=0.796 visibility=1.00 collided=False
+  episode  6: steps=300 reward= -1129.0 centring=0.858 dist_err=24.050 visibility=0.59 collided=False
+  episode  7: steps=300 reward=   536.1 centring=0.199 dist_err=1.239 visibility=1.00 collided=False
+  episode  8: steps=300 reward=   500.8 centring=0.135 dist_err=2.445 visibility=1.00 collided=False
+  episode  9: steps=300 reward=   557.5 centring=0.139 dist_err=0.819 visibility=1.00 collided=False
+  episode 10: steps=300 reward=   542.2 centring=0.200 dist_err=0.877 visibility=1.00 collided=False
+  episode 11: steps=300 reward=   515.0 centring=0.259 dist_err=1.353 visibility=1.00 collided=False
+  episode 12: steps=300 reward=   514.1 centring=0.319 dist_err=1.187 visibility=1.00 collided=False
+  episode 13: steps=300 reward=   521.4 centring=0.242 dist_err=1.456 visibility=1.00 collided=False
+  episode 14: steps=156 reward=  -214.9 centring=0.729 dist_err=9.555 visibility=0.69 collided=True
+  episode 15: steps=300 reward=   555.3 centring=0.102 dist_err=1.066 visibility=1.00 collided=False
+  episode 16: steps=300 reward=   533.1 centring=0.254 dist_err=0.913 visibility=1.00 collided=False
+  episode 17: steps=300 reward=   522.4 centring=0.125 dist_err=1.902 visibility=1.00 collided=False
+  episode 18: steps=300 reward=   563.7 centring=0.143 dist_err=0.673 visibility=1.00 collided=False
+  episode 19: steps=300 reward=   549.1 centring=0.252 dist_err=0.690 visibility=1.00 collided=False
+
+--- Evaluating sac stage 1 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/sac_stage1/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   447.7 centring=0.480 dist_err=1.425 visibility=1.00 collided=False
+  episode  1: steps=300 reward=   517.3 centring=0.184 dist_err=1.379 visibility=0.99 collided=False
+  episode  2: steps=300 reward=   442.3 centring=0.393 dist_err=1.745 visibility=0.99 collided=False
+  episode  3: steps=  2 reward=    -6.5 centring=0.054 dist_err=1.893 visibility=1.00 collided=True
+  episode  4: steps=300 reward=   459.4 centring=0.316 dist_err=1.578 visibility=0.99 collided=False
+  episode  5: steps=212 reward=   294.9 centring=0.209 dist_err=2.853 visibility=0.99 collided=True
+  episode  6: steps=300 reward=   409.6 centring=0.301 dist_err=3.255 visibility=0.99 collided=False
+  episode  7: steps=300 reward=   473.1 centring=0.186 dist_err=2.015 visibility=0.98 collided=False
+  episode  8: steps=300 reward=   446.3 centring=0.298 dist_err=1.952 visibility=0.99 collided=False
+  episode  9: steps=300 reward=   283.1 centring=0.491 dist_err=2.175 visibility=0.92 collided=False
+  episode 10: steps=300 reward=   461.6 centring=0.237 dist_err=2.205 visibility=0.99 collided=False
+  episode 11: steps=300 reward=   459.8 centring=0.274 dist_err=2.493 visibility=1.00 collided=False
+  episode 12: steps=  2 reward=    -6.6 centring=0.061 dist_err=2.177 visibility=1.00 collided=True
+  episode 13: steps=300 reward=   481.0 centring=0.321 dist_err=1.312 visibility=0.99 collided=False
+  episode 14: steps=300 reward=   368.6 centring=0.276 dist_err=4.748 visibility=0.99 collided=False
+  episode 15: steps=300 reward=   427.2 centring=0.366 dist_err=1.949 visibility=0.98 collided=False
+  episode 16: steps=300 reward=   446.2 centring=0.267 dist_err=2.270 visibility=0.99 collided=False
+  episode 17: steps=300 reward=   452.1 centring=0.380 dist_err=1.288 visibility=0.99 collided=False
+  episode 18: steps=300 reward=   417.9 centring=0.572 dist_err=1.088 visibility=0.99 collided=False
+  episode 19: steps=300 reward=   510.9 centring=0.183 dist_err=1.515 visibility=0.99 collided=False
+
+--- Evaluating sac stage 2 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/sac_stage2/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=  8 reward=    -2.2 centring=0.295 dist_err=1.198 visibility=0.88 collided=True
+  episode  1: steps= 12 reward=     4.3 centring=0.212 dist_err=1.643 visibility=0.92 collided=True
+  episode  2: steps= 14 reward=    12.7 centring=0.191 dist_err=0.867 visibility=1.00 collided=True
+  episode  3: steps= 11 reward=     9.3 centring=0.148 dist_err=1.555 visibility=1.00 collided=True
+  episode  4: steps= 11 reward=     7.9 centring=0.105 dist_err=2.536 visibility=1.00 collided=True
+  episode  5: steps= 14 reward=    -7.7 centring=0.550 dist_err=2.294 visibility=0.79 collided=True
+  episode  6: steps= 10 reward=     5.3 centring=0.274 dist_err=2.912 visibility=1.00 collided=True
+  episode  7: steps= 14 reward=    -5.8 centring=0.436 dist_err=2.263 visibility=0.79 collided=True
+  episode  8: steps= 10 reward=     8.0 centring=0.149 dist_err=1.093 visibility=1.00 collided=True
+  episode  9: steps= 11 reward=    10.4 centring=0.128 dist_err=0.793 visibility=1.00 collided=True
+  episode 10: steps= 10 reward=     6.2 centring=0.209 dist_err=2.423 visibility=1.00 collided=True
+  episode 11: steps= 10 reward=     4.6 centring=0.240 dist_err=0.747 visibility=0.90 collided=True
+  episode 12: steps= 10 reward=    -0.8 centring=0.304 dist_err=2.643 visibility=0.90 collided=True
+  episode 13: steps= 10 reward=     7.6 centring=0.258 dist_err=0.915 visibility=1.00 collided=True
+  episode 14: steps= 10 reward=     4.9 centring=0.282 dist_err=3.106 visibility=1.00 collided=True
+  episode 15: steps= 11 reward=     9.6 centring=0.204 dist_err=1.061 visibility=1.00 collided=True
+  episode 16: steps= 12 reward=     1.6 centring=0.302 dist_err=2.859 visibility=0.92 collided=True
+  episode 17: steps= 11 reward=     3.0 centring=0.245 dist_err=1.217 visibility=0.91 collided=True
+  episode 18: steps= 10 reward=     7.5 centring=0.254 dist_err=1.185 visibility=1.00 collided=True
+  episode 19: steps= 11 reward=     9.6 centring=0.101 dist_err=1.455 visibility=1.00 collided=True
+
+--- Evaluating sac stage 3 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/sac_stage3/final_model.zip
+  SKIPPED: checkpoint not found at /mnt/disks/data/aerotail/checkpoints/rl/active/sac_stage3/final_model.zip
+
+--- Evaluating ppo stage 0 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/ppo_stage0/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+/mnt/disks/data/aerotail-venv/lib/python3.10/site-packages/stable_baselines3/common/on_policy_algorithm.py:150: UserWarning: You are trying to run PPO on the GPU, but it is primarily intended to run on the CPU when not using a CNN policy (you are using ActorCriticPolicy which should be a MlpPolicy). See https://github.com/DLR-RM/stable-baselines3/issues/1245 for more info. You can pass `device='cpu'` or `export CUDA_VISIBLE_DEVICES=` to force using the CPU.Note: The model will train, but the GPU utilization will be poor and the training might take longer than on CPU.
+  warnings.warn(
+  episode  0: steps=300 reward=   522.5 centring=0.251 dist_err=1.368 visibility=1.00 collided=False
+  episode  1: steps=300 reward=   521.8 centring=0.247 dist_err=1.461 visibility=1.00 collided=False
+  episode  2: steps=300 reward=   521.9 centring=0.259 dist_err=1.266 visibility=1.00 collided=False
+  episode  3: steps=300 reward=   530.0 centring=0.252 dist_err=1.218 visibility=1.00 collided=False
+  episode  4: steps=300 reward=   518.1 centring=0.239 dist_err=1.608 visibility=1.00 collided=False
+  episode  5: steps=300 reward=   521.8 centring=0.265 dist_err=1.263 visibility=1.00 collided=False
+  episode  6: steps=300 reward=   520.3 centring=0.256 dist_err=1.440 visibility=1.00 collided=False
+  episode  7: steps=300 reward=   520.0 centring=0.253 dist_err=1.448 visibility=1.00 collided=False
+  episode  8: steps=300 reward=   525.3 centring=0.243 dist_err=1.357 visibility=1.00 collided=False
+  episode  9: steps=300 reward=   536.2 centring=0.261 dist_err=0.990 visibility=1.00 collided=False
+  episode 10: steps=300 reward=   518.3 centring=0.245 dist_err=1.462 visibility=1.00 collided=False
+  episode 11: steps=300 reward=   538.7 centring=0.265 dist_err=0.928 visibility=1.00 collided=False
+  episode 12: steps=300 reward=   512.3 centring=0.240 dist_err=1.732 visibility=1.00 collided=False
+  episode 13: steps=300 reward=   515.1 centring=0.275 dist_err=1.418 visibility=1.00 collided=False
+  episode 14: steps=300 reward=   526.7 centring=0.259 dist_err=1.292 visibility=1.00 collided=False
+  episode 15: steps=300 reward=   519.5 centring=0.239 dist_err=1.440 visibility=1.00 collided=False
+  episode 16: steps=300 reward=   527.8 centring=0.253 dist_err=1.214 visibility=1.00 collided=False
+  episode 17: steps=300 reward=   519.3 centring=0.243 dist_err=1.517 visibility=1.00 collided=False
+  episode 18: steps=300 reward=   521.1 centring=0.240 dist_err=1.379 visibility=1.00 collided=False
+  episode 19: steps=300 reward=   518.3 centring=0.256 dist_err=1.527 visibility=1.00 collided=False
+
+--- Evaluating ppo stage 1 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/ppo_stage1/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   494.1 centring=0.247 dist_err=1.582 visibility=1.00 collided=False
+  episode  1: steps=300 reward=   500.3 centring=0.257 dist_err=1.171 visibility=0.99 collided=False
+  episode  2: steps=300 reward=   484.6 centring=0.241 dist_err=1.442 visibility=0.99 collided=False
+  episode  3: steps=300 reward=   493.5 centring=0.279 dist_err=1.358 visibility=0.99 collided=False
+  episode  4: steps=300 reward=   492.9 centring=0.249 dist_err=1.196 visibility=0.99 collided=False
+  episode  5: steps=300 reward=   480.8 centring=0.253 dist_err=1.261 visibility=0.98 collided=False
+  episode  6: steps=300 reward=   486.3 centring=0.263 dist_err=1.282 visibility=0.99 collided=False
+  episode  7: steps=300 reward=   480.6 centring=0.255 dist_err=1.182 visibility=0.98 collided=False
+  episode  8: steps=300 reward=   479.6 centring=0.237 dist_err=1.351 visibility=0.99 collided=False
+  episode  9: steps=300 reward=   498.9 centring=0.237 dist_err=1.227 visibility=0.99 collided=False
+  episode 10: steps=300 reward=   489.7 centring=0.238 dist_err=1.337 visibility=0.99 collided=False
+  episode 11: steps=300 reward=   503.2 centring=0.257 dist_err=1.334 visibility=1.00 collided=False
+  episode 12: steps=300 reward=   519.4 centring=0.221 dist_err=0.993 visibility=1.00 collided=False
+  episode 13: steps=300 reward=   495.9 centring=0.271 dist_err=1.380 visibility=0.99 collided=False
+  episode 14: steps=300 reward=   529.6 centring=0.222 dist_err=0.671 visibility=0.99 collided=False
+  episode 15: steps=300 reward=   475.3 centring=0.261 dist_err=1.339 visibility=0.98 collided=False
+  episode 16: steps=300 reward=   489.0 centring=0.235 dist_err=1.156 visibility=0.99 collided=False
+  episode 17: steps=300 reward=   482.3 centring=0.249 dist_err=1.309 visibility=0.99 collided=False
+  episode 18: steps=300 reward=   487.1 centring=0.272 dist_err=1.359 visibility=0.99 collided=False
+  episode 19: steps=300 reward=   497.5 centring=0.263 dist_err=1.290 visibility=0.99 collided=False
+
+--- Evaluating ppo stage 2 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/ppo_stage2/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   352.7 centring=0.459 dist_err=1.115 visibility=0.93 collided=False
+  episode  1: steps=300 reward=   349.1 centring=0.436 dist_err=0.931 visibility=0.92 collided=False
+  episode  2: steps=300 reward=   285.1 centring=0.470 dist_err=1.232 visibility=0.90 collided=False
+  episode  3: steps=300 reward=   365.5 centring=0.442 dist_err=1.170 visibility=0.94 collided=False
+  episode  4: steps=300 reward=   -17.1 centring=0.637 dist_err=4.192 visibility=0.79 collided=False
+  episode  5: steps=300 reward=   352.2 centring=0.430 dist_err=0.992 visibility=0.93 collided=False
+  episode  6: steps=300 reward=   364.2 centring=0.449 dist_err=1.708 visibility=0.95 collided=False
+  episode  7: steps=300 reward=   382.3 centring=0.429 dist_err=1.140 visibility=0.95 collided=False
+  episode  8: steps=300 reward=   385.7 centring=0.457 dist_err=0.892 visibility=0.95 collided=False
+  episode  9: steps=300 reward=   298.2 centring=0.491 dist_err=0.849 visibility=0.89 collided=False
+  episode 10: steps=300 reward=   276.5 centring=0.503 dist_err=0.831 visibility=0.89 collided=False
+  episode 11: steps=300 reward=   294.6 centring=0.536 dist_err=1.773 visibility=0.93 collided=False
+  episode 12: steps=300 reward=   202.3 centring=0.527 dist_err=0.952 visibility=0.84 collided=False
+  episode 13: steps=300 reward=   306.3 centring=0.494 dist_err=1.214 visibility=0.91 collided=False
+  episode 14: steps=300 reward=   317.5 centring=0.449 dist_err=1.429 visibility=0.91 collided=False
+  episode 15: steps=300 reward=   293.8 centring=0.474 dist_err=1.015 visibility=0.90 collided=False
+  episode 16: steps=300 reward=   320.3 centring=0.479 dist_err=0.888 visibility=0.91 collided=False
+  episode 17: steps=300 reward=   247.2 centring=0.520 dist_err=1.392 visibility=0.88 collided=False
+  episode 18: steps=300 reward=   117.2 centring=0.624 dist_err=1.597 visibility=0.82 collided=False
+  episode 19: steps=300 reward=   326.6 centring=0.491 dist_err=1.303 visibility=0.93 collided=False
+
+--- Evaluating ppo stage 3 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/ppo_stage3/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps= 57 reward=    34.4 centring=0.391 dist_err=1.814 visibility=0.88 collided=True
+  episode  1: steps= 11 reward=     2.3 centring=0.289 dist_err=1.090 visibility=0.91 collided=True
+  episode  2: steps= 10 reward=    -2.3 centring=0.289 dist_err=1.108 visibility=0.90 collided=True
+  episode  3: steps= 11 reward=     9.2 centring=0.204 dist_err=1.023 visibility=1.00 collided=True
+  episode  4: steps= 11 reward=     7.4 centring=0.213 dist_err=2.012 visibility=1.00 collided=True
+  episode  5: steps= 11 reward=   -11.5 centring=0.598 dist_err=1.730 visibility=0.73 collided=True
+  episode  6: steps= 14 reward=   -21.6 centring=0.648 dist_err=2.638 visibility=0.64 collided=True
+  episode  7: steps= 12 reward=   -19.9 centring=0.828 dist_err=1.692 visibility=0.58 collided=True
+  episode  8: steps= 11 reward=     2.9 centring=0.308 dist_err=0.953 visibility=0.91 collided=True
+  episode  9: steps= 53 reward=     8.3 centring=0.464 dist_err=2.805 visibility=0.81 collided=True
+  episode 10: steps= 13 reward=    -0.5 centring=0.324 dist_err=2.241 visibility=0.92 collided=True
+  episode 11: steps= 11 reward=     4.9 centring=0.284 dist_err=1.139 visibility=0.91 collided=True
+  episode 12: steps= 10 reward=    -0.7 centring=0.260 dist_err=2.174 visibility=0.90 collided=True
+  episode 13: steps= 10 reward=     7.1 centring=0.301 dist_err=0.856 visibility=1.00 collided=True
+  episode 14: steps= 14 reward=     6.3 centring=0.328 dist_err=2.722 visibility=0.93 collided=True
+  episode 15: steps=151 reward=   -85.5 centring=0.727 dist_err=2.007 visibility=0.68 collided=True
+  episode 16: steps= 10 reward=    -1.5 centring=0.398 dist_err=2.460 visibility=0.90 collided=True
+  episode 17: steps= 13 reward=     4.3 centring=0.380 dist_err=1.110 visibility=0.92 collided=True
+  episode 18: steps= 19 reward=     9.1 centring=0.315 dist_err=1.031 visibility=0.89 collided=True
+  episode 19: steps= 13 reward=    12.6 centring=0.187 dist_err=1.076 visibility=1.00 collided=True
+
+--- Evaluating recurrent_ppo stage 0 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/recurrent_ppo_stage0/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   472.0 centring=0.272 dist_err=1.626 visibility=1.00 collided=False
+  episode  1: steps=300 reward=   476.1 centring=0.309 dist_err=1.307 visibility=1.00 collided=False
+  episode  2: steps=300 reward=   476.4 centring=0.283 dist_err=1.455 visibility=1.00 collided=False
+  episode  3: steps=300 reward=   499.7 centring=0.280 dist_err=0.894 visibility=1.00 collided=False
+  episode  4: steps=300 reward=   501.6 centring=0.241 dist_err=0.709 visibility=1.00 collided=False
+  episode  5: steps=300 reward=   492.6 centring=0.290 dist_err=0.868 visibility=1.00 collided=False
+  episode  6: steps= 96 reward=   130.7 centring=0.432 dist_err=1.269 visibility=1.00 collided=True
+  episode  7: steps=300 reward=   477.8 centring=0.295 dist_err=1.282 visibility=1.00 collided=False
+  episode  8: steps=300 reward=   428.1 centring=0.408 dist_err=2.209 visibility=1.00 collided=False
+  episode  9: steps=300 reward=   491.8 centring=0.268 dist_err=1.010 visibility=1.00 collided=False
+  episode 10: steps=300 reward=   496.8 centring=0.202 dist_err=0.943 visibility=1.00 collided=False
+  episode 11: steps=300 reward=   479.0 centring=0.320 dist_err=1.020 visibility=1.00 collided=False
+  episode 12: steps=300 reward=   498.8 centring=0.248 dist_err=0.850 visibility=1.00 collided=False
+  episode 13: steps=300 reward=   487.6 centring=0.274 dist_err=1.262 visibility=1.00 collided=False
+  episode 14: steps= 85 reward=   115.0 centring=0.410 dist_err=1.437 visibility=1.00 collided=True
+  episode 15: steps=300 reward=   473.5 centring=0.271 dist_err=1.516 visibility=1.00 collided=False
+  episode 16: steps=300 reward=   491.1 centring=0.294 dist_err=0.775 visibility=1.00 collided=False
+  episode 17: steps=300 reward=   472.3 centring=0.287 dist_err=1.578 visibility=1.00 collided=False
+  episode 18: steps=300 reward=   481.2 centring=0.259 dist_err=1.332 visibility=1.00 collided=False
+  episode 19: steps=300 reward=   480.2 centring=0.323 dist_err=1.214 visibility=1.00 collided=False
+
+--- Evaluating recurrent_ppo stage 1 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/recurrent_ppo_stage1/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=245 reward=   361.0 centring=0.257 dist_err=1.664 visibility=1.00 collided=True
+  episode  1: steps=300 reward=   475.4 centring=0.261 dist_err=1.154 visibility=0.99 collided=False
+  episode  2: steps=300 reward=   458.3 centring=0.244 dist_err=1.339 visibility=0.99 collided=False
+  episode  3: steps=300 reward=   475.2 centring=0.274 dist_err=1.102 visibility=0.99 collided=False
+  episode  4: steps=300 reward=   475.5 centring=0.260 dist_err=1.013 visibility=0.99 collided=False
+  episode  5: steps=300 reward=   451.3 centring=0.279 dist_err=1.129 visibility=0.98 collided=False
+  episode  6: steps=300 reward=   451.2 centring=0.351 dist_err=0.944 visibility=0.99 collided=False
+  episode  7: steps=300 reward=   461.1 centring=0.235 dist_err=0.886 visibility=0.98 collided=False
+  episode  8: steps=300 reward=   454.7 centring=0.265 dist_err=1.278 visibility=0.99 collided=False
+  episode  9: steps=300 reward=   455.4 centring=0.331 dist_err=1.042 visibility=0.99 collided=False
+  episode 10: steps=300 reward=   463.8 centring=0.258 dist_err=1.185 visibility=0.99 collided=False
+  episode 11: steps=300 reward=   476.3 centring=0.300 dist_err=1.082 visibility=1.00 collided=False
+  episode 12: steps=  2 reward=    -6.9 centring=0.094 dist_err=2.174 visibility=1.00 collided=True
+  episode 13: steps=300 reward=   459.6 centring=0.270 dist_err=1.548 visibility=0.99 collided=False
+  episode 14: steps=300 reward=   475.3 centring=0.227 dist_err=1.210 visibility=0.99 collided=False
+  episode 15: steps=300 reward=   452.8 centring=0.286 dist_err=1.083 visibility=0.98 collided=False
+  episode 16: steps=300 reward=   465.9 centring=0.287 dist_err=0.898 visibility=0.99 collided=False
+  episode 17: steps=235 reward=   331.2 centring=0.313 dist_err=1.419 visibility=0.98 collided=True
+  episode 18: steps=300 reward=   452.8 centring=0.265 dist_err=1.542 visibility=0.99 collided=False
+  episode 19: steps=300 reward=   474.2 centring=0.229 dist_err=1.176 visibility=0.99 collided=False
+
+Saved results to /mnt/disks/data/aerotail/checkpoints/eval_results.csv
+
+== Summary ==
+algo    stage  ep_len    reward    centring  dist_err  visib   collision%
+sac     0      286.7     403.7     0.275     2.668     0.96    10.0      
+sac     1      265.8     389.3     0.293     2.066     0.99    15.0      
+sac     2      11.0      4.8       0.244     1.738     0.95    100.0     
+ppo     0      300.0     522.7     0.252     1.366     1.00    0.0       
+ppo     1      300.0     493.0     0.250     1.261     0.99    0.0       
+ppo     2      300.0     291.0     0.490     1.331     0.90    0.0       
+ppo     3      23.2      -1.7      0.387     1.684     0.87    100.0     
+recurrent_ppo0      279.1     446.1     0.298     1.228     1.00    10.0      
+recurrent_ppo1      279.1     428.2     0.264     1.243     0.99    15.0      

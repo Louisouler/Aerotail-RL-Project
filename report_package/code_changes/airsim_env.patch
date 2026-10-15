@@ -1,0 +1,29 @@
+--- a/envs/airsim_env.py (team backup)
++++ b/envs/airsim_env.py (this run)
+@@ -21,6 +21,7 @@
+ # obstacle penalty from whichever reads closest.
+ # ---------------------------------------------------------------------------
+ import math
++import time
+ import numpy as np
+ import gymnasium as gym
+ from gymnasium import spaces
+@@ -232,6 +233,18 @@
+         self.client.simSetVehiclePose(spawn_pose, ignore_collision=True, vehicle_name=self.drone_name)
+         self.client.enableApiControl(True, self.drone_name)
+         self.client.armDisarm(True, self.drone_name)
++        # Teleporting keeps the drone's velocity, and AirSim's takeoff()
++        # refuses (silently, through .join()) if |v| > 0.05 m/s - which left
++        # episodes starting on the ground after any episode that ended while
++        # moving. Wait for the drone to settle so takeoff actually happens.
++        wait_start = time.time()
++        while time.time() - wait_start < 5.0:
++            v = self.client.getMultirotorState(
++                vehicle_name=self.drone_name
++            ).kinematics_estimated.linear_velocity
++            if math.sqrt(v.x_val ** 2 + v.y_val ** 2 + v.z_val ** 2) <= 0.05:
++                break
++            time.sleep(0.05)
+         self.client.takeoffAsync(vehicle_name=self.drone_name).join()
+ 
+         self._collision_baseline_time = self.client.simGetCollisionInfo(

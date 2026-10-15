@@ -1,0 +1,112 @@
+/mnt/disks/data/aerotail-venv/lib/python3.10/site-packages/stable_baselines3/common/on_policy_algorithm.py:150: UserWarning: You are trying to run PPO on the GPU, but it is primarily intended to run on the CPU when not using a CNN policy (you are using ActorCriticPolicy which should be a MlpPolicy). See https://github.com/DLR-RM/stable-baselines3/issues/1245 for more info. You can pass `device='cpu'` or `export CUDA_VISIBLE_DEVICES=` to force using the CPU.Note: The model will train, but the GPU utilization will be poor and the training might take longer than on CPU.
+  warnings.warn(
+
+--- Evaluating sac stage 0 ---
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   555.7 centring=0.143 dist_err=0.872 visibility=1.00 collided=False start_alt=1.52 coll=None
+  episode  1: steps=300 reward=   510.5 centring=0.309 dist_err=1.205 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode  2: steps=300 reward=   555.1 centring=0.233 dist_err=0.549 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  3: steps=182 reward=   313.5 centring=0.327 dist_err=0.767 visibility=1.00 collided=True start_alt=1.54 coll=('Target2', 182)
+  episode  4: steps=300 reward=   533.4 centring=0.284 dist_err=0.977 visibility=1.00 collided=False start_alt=1.51 coll=None
+  episode  5: steps=300 reward=   520.5 centring=0.280 dist_err=1.079 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  6: steps=300 reward=   360.5 centring=0.474 dist_err=3.486 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode  7: steps=300 reward=   526.2 centring=0.208 dist_err=1.489 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  8: steps=300 reward=   498.7 centring=0.121 dist_err=2.525 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  9: steps=300 reward=   557.1 centring=0.150 dist_err=0.775 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 10: steps=300 reward=   539.9 centring=0.213 dist_err=0.889 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 11: steps=300 reward=   535.4 centring=0.233 dist_err=1.020 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 12: steps=300 reward=   507.9 centring=0.337 dist_err=1.187 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode 13: steps=300 reward=   524.9 centring=0.228 dist_err=1.418 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 14: steps=230 reward= -1142.8 centring=0.993 dist_err=26.520 visibility=0.44 collided=True start_alt=1.54 coll=('Ground_5', 230)
+  episode 15: steps=300 reward=   557.5 centring=0.132 dist_err=0.911 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 16: steps=300 reward=   538.7 centring=0.246 dist_err=0.825 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 17: steps=300 reward=   524.0 centring=0.129 dist_err=1.857 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 18: steps=300 reward=   566.4 centring=0.146 dist_err=0.617 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 19: steps=300 reward=   549.3 centring=0.269 dist_err=0.625 visibility=1.00 collided=False start_alt=1.54 coll=None
+
+--- Evaluating sac stage 1 ---
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   417.6 centring=0.458 dist_err=1.768 visibility=1.00 collided=False start_alt=0.84 coll=None
+  episode  1: steps=300 reward=   514.7 centring=0.249 dist_err=1.201 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode  2: steps=300 reward=   433.8 centring=0.349 dist_err=2.140 visibility=0.99 collided=False start_alt=0.85 coll=None
+  episode  3: steps=300 reward=   489.3 centring=0.316 dist_err=1.181 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode  4: steps=300 reward=   458.9 centring=0.281 dist_err=1.648 visibility=0.99 collided=False start_alt=0.83 coll=None
+  episode  5: steps=300 reward=   429.5 centring=0.300 dist_err=2.365 visibility=0.98 collided=False start_alt=1.52 coll=None
+  episode  6: steps=300 reward=   419.4 centring=0.305 dist_err=2.958 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode  7: steps=300 reward=   475.1 centring=0.192 dist_err=1.953 visibility=0.98 collided=False start_alt=1.52 coll=None
+  episode  8: steps=300 reward=   449.0 centring=0.308 dist_err=1.870 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode  9: steps=130 reward=     1.3 centring=0.796 dist_err=2.711 visibility=0.82 collided=True start_alt=1.52 coll=('Target2', 130)
+  episode 10: steps=300 reward=   465.7 centring=0.210 dist_err=2.148 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode 11: steps=300 reward=   452.7 centring=0.293 dist_err=2.482 visibility=1.00 collided=False start_alt=1.52 coll=None
+  episode 12: steps=300 reward=   510.6 centring=0.208 dist_err=1.565 visibility=1.00 collided=False start_alt=1.52 coll=None
+  episode 13: steps=300 reward=   448.7 centring=0.432 dist_err=1.398 visibility=0.99 collided=False start_alt=0.84 coll=None
+  episode 14: steps=300 reward=   312.6 centring=0.323 dist_err=6.053 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode 15: steps=300 reward=   421.4 centring=0.361 dist_err=1.988 visibility=0.98 collided=False start_alt=1.52 coll=None
+  episode 16: steps=300 reward=   445.7 centring=0.251 dist_err=2.318 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode 17: steps=300 reward=   421.4 centring=0.498 dist_err=1.393 visibility=0.99 collided=False start_alt=0.84 coll=None
+  episode 18: steps=300 reward=   418.7 centring=0.563 dist_err=1.184 visibility=0.99 collided=False start_alt=1.52 coll=None
+  episode 19: steps=300 reward=   510.8 centring=0.206 dist_err=1.435 visibility=0.99 collided=False start_alt=1.52 coll=None
+
+--- Evaluating ppo stage 0 ---
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   521.1 centring=0.251 dist_err=1.370 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode  1: steps=300 reward=   519.9 centring=0.248 dist_err=1.461 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  2: steps=300 reward=   521.8 centring=0.259 dist_err=1.267 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode  3: steps=300 reward=   528.7 centring=0.261 dist_err=1.222 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  4: steps=300 reward=   519.7 centring=0.237 dist_err=1.560 visibility=1.00 collided=False start_alt=1.51 coll=None
+  episode  5: steps=300 reward=   520.5 centring=0.259 dist_err=1.338 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  6: steps=300 reward=   521.4 centring=0.253 dist_err=1.416 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  7: steps=300 reward=   519.8 centring=0.234 dist_err=1.466 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode  8: steps=300 reward=   524.1 centring=0.245 dist_err=1.362 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode  9: steps=300 reward=   534.1 centring=0.265 dist_err=0.972 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 10: steps=300 reward=   516.5 centring=0.247 dist_err=1.472 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 11: steps=300 reward=   538.8 centring=0.261 dist_err=0.919 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 12: steps=300 reward=   512.0 centring=0.241 dist_err=1.707 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 13: steps=300 reward=   515.0 centring=0.283 dist_err=1.360 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 14: steps=300 reward=   526.4 centring=0.261 dist_err=1.247 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 15: steps=300 reward=   518.4 centring=0.255 dist_err=1.392 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 16: steps=300 reward=   525.0 centring=0.252 dist_err=1.237 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 17: steps=300 reward=   513.9 centring=0.246 dist_err=1.525 visibility=1.00 collided=False start_alt=-0.01 coll=None
+  episode 18: steps=300 reward=   520.1 centring=0.237 dist_err=1.387 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode 19: steps=300 reward=   519.9 centring=0.251 dist_err=1.500 visibility=1.00 collided=False start_alt=1.54 coll=None
+
+--- Evaluating ppo stage 1 ---
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=300 reward=   493.1 centring=0.265 dist_err=1.537 visibility=1.00 collided=False start_alt=0.86 coll=None
+  episode  1: steps=300 reward=   498.8 centring=0.274 dist_err=1.212 visibility=0.99 collided=False start_alt=0.86 coll=None
+  episode  2: steps=300 reward=   480.9 centring=0.245 dist_err=1.537 visibility=0.99 collided=False start_alt=0.86 coll=None
+  episode  3: steps=300 reward=   491.9 centring=0.273 dist_err=1.406 visibility=0.99 collided=False start_alt=0.86 coll=None
+  episode  4: steps=300 reward=   492.2 centring=0.259 dist_err=1.155 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode  5: steps=300 reward=   482.5 centring=0.249 dist_err=1.249 visibility=0.98 collided=False start_alt=0.86 coll=None
+  episode  6: steps=300 reward=   488.1 centring=0.266 dist_err=1.199 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode  7: steps=300 reward=   479.3 centring=0.263 dist_err=1.179 visibility=0.98 collided=False start_alt=1.54 coll=None
+  episode  8: steps=300 reward=   471.3 centring=0.244 dist_err=1.528 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode  9: steps=300 reward=   498.9 centring=0.231 dist_err=1.200 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode 10: steps=300 reward=   490.0 centring=0.237 dist_err=1.322 visibility=0.99 collided=False start_alt=1.55 coll=None
+  episode 11: steps=300 reward=   498.1 centring=0.260 dist_err=1.429 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 12: steps=300 reward=   518.7 centring=0.217 dist_err=1.009 visibility=1.00 collided=False start_alt=1.54 coll=None
+  episode 13: steps=300 reward=   493.2 centring=0.270 dist_err=1.330 visibility=0.99 collided=False start_alt=1.55 coll=None
+  episode 14: steps=300 reward=   529.5 centring=0.224 dist_err=0.645 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode 15: steps=300 reward=   473.1 centring=0.275 dist_err=1.310 visibility=0.98 collided=False start_alt=1.54 coll=None
+  episode 16: steps=300 reward=   490.2 centring=0.234 dist_err=1.120 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode 17: steps=300 reward=   485.0 centring=0.245 dist_err=1.279 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode 18: steps=300 reward=   485.3 centring=0.267 dist_err=1.367 visibility=0.99 collided=False start_alt=1.54 coll=None
+  episode 19: steps=300 reward=   496.0 centring=0.259 dist_err=1.251 visibility=0.99 collided=False start_alt=1.54 coll=None
+
+Saved results to /tmp/claude-1001/-mnt-disks-data-aerotail/8c85e7de-834c-48c7-bdd5-366ee4adb7af/scratchpad/step9b_fidelity_results_resetfix.csv
+
+== Summary ==
+algo    stage  ep_len    reward    centring  dist_err  visib   collision%
+sac     0      290.6     431.6     0.273     2.480     0.97    10.0      
+sac     1      291.5     424.8     0.345     2.088     0.98    5.0       
+ppo     0      300.0     521.9     0.252     1.359     1.00    0.0       
+ppo     1      300.0     491.8     0.253     1.263     0.99    0.0       
+exit=0 runtime=1790s

@@ -1,0 +1,24 @@
+# Simulator binaries (AirSim Blocks, ~850 MB) - not redistributable here
+sim/
+
+# Checkpoints: keep only the final model + VecNormalize stats of each run
+checkpoints/**
+!checkpoints/
+!checkpoints/rl/
+!checkpoints/rl/active/
+!checkpoints/rl/active/*/
+!checkpoints/rl/active/*/final_model.zip
+!checkpoints/rl/active/*/vecnormalize.pkl
+
+# Training logs and the packed copy of report_package/
+logs/
+recurrentppo_report_package.tar.gz
+
+# Dashboard runtime data, recordings and local backups
+dashboard/runtime/
+dashboard/recordings/
+dashboard/backup/
+
+# Python
+__pycache__/
+*.pyc

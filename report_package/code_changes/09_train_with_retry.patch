@@ -1,0 +1,35 @@
+--- a/scripts/09_train_with_retry.sh (team backup)
++++ b/scripts/09_train_with_retry.sh (this run)
+@@ -72,6 +72,23 @@
+         sed -E 's/.*_([0-9]+)_steps\.zip/\1 &/' | sort -n | tail -1
+ }
+ 
++# Checkpoints are named by the model's CUMULATIVE timestep count, which
++# continues from the previous stage when a stage is bootstrapped from
++# INITIAL_CHECKPOINT. Record where this stage started so progress is measured
++# within the stage - otherwise the first crash in e.g. stage 1 looked like
++# "target already reached" and the run silently stopped.
++STAGE_START_FILE="$CKPT_DIR/stage_start_timesteps.txt"
++if [ ! -f "$STAGE_START_FILE" ]; then
++    if [ -n "$INITIAL_CHECKPOINT" ]; then
++        python3 -c "import json, sys, zipfile; print(json.loads(zipfile.ZipFile(sys.argv[1]).read('data'))['num_timesteps'])" \
++            "$INITIAL_CHECKPOINT" > "$STAGE_START_FILE" || rm -f "$STAGE_START_FILE"
++    else
++        echo 0 > "$STAGE_START_FILE"
++    fi
++fi
++STAGE_START=$(cat "$STAGE_START_FILE" 2>/dev/null || echo 0)
++echo "Stage starts at cumulative timestep $STAGE_START"
++
+ attempt=0
+ while [ "$attempt" -lt "$MAX_RETRIES" ]; do
+     attempt=$((attempt + 1))
+@@ -80,7 +97,7 @@
+ 
+     latest_line=$(find_latest_checkpoint)
+     if [ -n "$latest_line" ]; then
+-        done_steps=$(echo "$latest_line" | awk '{print $1}')
++        done_steps=$(( $(echo "$latest_line" | awk '{print $1}') - STAGE_START ))
+         ckpt_path=$(echo "$latest_line" | awk '{print $2}')
+     else
+         done_steps=0

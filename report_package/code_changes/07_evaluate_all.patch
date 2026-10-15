@@ -1,0 +1,52 @@
+--- a/scripts/07_evaluate_all.py (team backup)
++++ b/scripts/07_evaluate_all.py (this run)
+@@ -46,6 +46,31 @@
+ CKPT_ROOT = "/mnt/disks/data/aerotail/checkpoints/rl/active"
+ OUTPUT_CSV = "/mnt/disks/data/aerotail/checkpoints/eval_results.csv"
+ 
++
++def latest_run_files(run_dir):
++    # A finished run has final_model.zip + vecnormalize.pkl. If a run was
++    # stopped before finishing, fall back to its latest periodic checkpoint
++    # and the VecNormalize stats saved alongside it (ckpt_N_steps.zip ->
++    # ckpt_vecnormalize_N_steps.pkl).
++    final_model = os.path.join(run_dir, "final_model.zip")
++    if os.path.exists(final_model):
++        return final_model, os.path.join(run_dir, "vecnormalize.pkl")
++    steps = []
++    for name in os.listdir(run_dir) if os.path.isdir(run_dir) else []:
++        if name.startswith("ckpt_") and name.endswith("_steps.zip"):
++            num = name[len("ckpt_"):-len("_steps.zip")]
++            if num.isdigit():
++                steps.append(int(num))
++    if not steps:
++        return final_model, os.path.join(run_dir, "vecnormalize.pkl")  # reported as SKIPPED
++    n = max(steps)
++    return (os.path.join(run_dir, f"ckpt_{n}_steps.zip"),
++            os.path.join(run_dir, f"ckpt_vecnormalize_{n}_steps.pkl"))
++
++
++RPPO_STAGE0_CKPT, RPPO_STAGE0_VECNORM = latest_run_files(f"{CKPT_ROOT}/recurrent_ppo_stage0")
++RPPO_STAGE1_CKPT, RPPO_STAGE1_VECNORM = latest_run_files(f"{CKPT_ROOT}/recurrent_ppo_stage1")
++
+ # Every checkpoint to evaluate. Add rows here as new stages/algorithms
+ # finish training - existing entries are safe to re-run (they'll just
+ # produce a fresh row with the same config, useful if you retrain).
+@@ -62,6 +87,9 @@
+          vecnormalize=f"{CKPT_ROOT}/ppo_stage2/vecnormalize.pkl"),
+     dict(algo="ppo", stage=3, checkpoint=f"{CKPT_ROOT}/ppo_stage3/final_model.zip",
+          vecnormalize=f"{CKPT_ROOT}/ppo_stage3/vecnormalize.pkl"),
++    # RecurrentPPO is deliberately scoped to stages 0-1 only.
++    dict(algo="recurrent_ppo", stage=0, checkpoint=RPPO_STAGE0_CKPT, vecnormalize=RPPO_STAGE0_VECNORM),
++    dict(algo="recurrent_ppo", stage=1, checkpoint=RPPO_STAGE1_CKPT, vecnormalize=RPPO_STAGE1_VECNORM),
+ ]
+ 
+ 
+@@ -142,6 +170,7 @@
+ 
+ def evaluate_config(cfg):
+     print(f"\n--- Evaluating {cfg['algo']} stage {cfg['stage']} ---")
++    print(f"  checkpoint: {cfg['checkpoint']}")
+     if not os.path.exists(cfg["checkpoint"]):
+         print(f"  SKIPPED: checkpoint not found at {cfg['checkpoint']}")
+         return None
