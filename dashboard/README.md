@@ -136,6 +136,12 @@ Starts one demo (same rules as the Start button), records until it ends and writ
 `<stamp>_<model>_sim.mp4` (simulator display, 1280x720, 30 fps, H.264) and
 `<stamp>_<model>_dashboard.mp4` (the dashboard page, 1080p). Requires the dashboard to be running.
 
+`--seed-base N` replaces the 07 evaluation seeds (default 10000) and adds `_seedN` to the file
+names. The seed only selects the target's random route. In AirSimNH the evaluation seeds often send
+the target through houses and gardens (it ignores collisions), which the chase camera cannot show;
+`--seed-base 31539` sends it straight north along the street from Drone1's spawn point, which makes
+a readable video. Such a hand-picked route is not representative of the evaluation results.
+
 ## Faithfulness to the evaluation
 
 `10_dashboard_demo.py` follows `run_episode()` in `07_evaluate_all.py` line for line:

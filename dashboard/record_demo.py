@@ -84,6 +84,8 @@ def main():
     p.add_argument("--model", default="recurrent_ppo:0", help="algo:stage, e.g. ppo:0")
     p.add_argument("--vehicle", default="Drone1", choices=sorted(control.VEHICLES))
     p.add_argument("--episodes", type=int, default=1)
+    p.add_argument("--seed-base", type=int, default=None,
+                   help="episode i uses seed seed_base + i (default: the 07 evaluation seeds, 10000)")
     p.add_argument("--dashboard-url", default="http://127.0.0.1:8050/")
     p.add_argument("--display", default=":99")
     p.add_argument("--fps", type=int, default=30)
@@ -99,7 +101,8 @@ def main():
         sys.exit(f"X display {args.display} not available - run the simulator windowed on it (see README)")
 
     os.makedirs(args.out_dir, exist_ok=True)
-    stem = os.path.join(args.out_dir, f"{time.strftime('%Y%m%d_%H%M%S')}_{args.model.replace(':', '_stage')}")
+    seed = "" if args.seed_base is None else f"_seed{args.seed_base}"
+    stem = os.path.join(args.out_dir, f"{time.strftime('%Y%m%d_%H%M%S')}_{args.model.replace(':', '_stage')}{seed}")
     sim_path, dash_path = stem + "_sim.mp4", stem + "_dashboard.mp4"
 
     ctl = control.DemoController()
@@ -120,7 +123,7 @@ def main():
             # hide the control bar: its form shows defaults, not necessarily the running model
             page.add_style_tag(content=".page { max-width: none; } .control-bar { display: none; }")
         rec.start()
-        ok, msg = ctl.start(args.model, args.vehicle, args.episodes)
+        ok, msg = ctl.start(args.model, args.vehicle, args.episodes, args.seed_base)
         print(msg, flush=True)
         if not ok:
             rec.stop()

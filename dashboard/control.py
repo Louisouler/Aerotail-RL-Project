@@ -116,7 +116,7 @@ class DemoController:
                 return dict(running=True, pid=demos[0][0], cmd=demos[0][1])
             return dict(running=False)
 
-    def start(self, model_value, vehicle, episodes):
+    def start(self, model_value, vehicle, episodes, seed_base=None):
         with self._lock:
             self._reap()
             if running_demos():
@@ -140,6 +140,8 @@ class DemoController:
             algo, stage = model_value.split(":")
             cmd = [EXPERIMENT_PYTHON, "-u", DEMO_SCRIPT, "--algo", algo, "--stage", stage,
                    "--vehicle", vehicle, "--target", VEHICLES[vehicle], "--episodes", str(episodes)]
+            if seed_base is not None:  # default: the 07 evaluation seeds (10000 + i)
+                cmd += ["--seed-base", str(int(seed_base))]
             os.makedirs(os.path.dirname(DEMO_LOG), exist_ok=True)
             log = open(DEMO_LOG, "w")
             self._proc = subprocess.Popen(cmd, cwd=PROJECT_DIR, stdout=log, stderr=subprocess.STDOUT,
