@@ -1,4 +1,4 @@
-# RecurrentPPO (curriculum stages 0-1): training, evaluation and deviations
+# RecurrentPPO (curriculum stages 0-2): training, evaluation and deviations
 
 This document covers the RecurrentPPO part of the project: how it was trained,
 how it was evaluated against the existing SAC/PPO baselines, and every place
@@ -8,7 +8,8 @@ where the procedure deviates from the original setup. All times are UTC.
 
 - RecurrentPPO was trained on curriculum **stage 0 for 1,001,000 timesteps** and
   then **stage 1 for 1,000,448 timesteps**, continuing from the stage-0 model
-  (cumulative 2,001,448). Stages 2-3 were out of scope by design.
+  (cumulative 2,001,448). Stages 2-3 were out of scope by design; stage 2 was
+  added later (Section 8.1).
 - All algorithms (SAC, PPO, RecurrentPPO) were re-evaluated with the existing
   methodology (`scripts/07_evaluate_all.py`) on the same reconstructed runtime,
   producing the updated `checkpoints/eval_results.csv`. The table produced on the
@@ -21,6 +22,12 @@ where the procedure deviates from the original setup. All times are UTC.
   new VM. A reset/takeoff bug surfaced on the rebuilt runtime and was fixed; the
   rebuilt runtime was validated against the original evaluation table before
   training (Section 4).
+- Later additions (Section 8): RecurrentPPO **stage 2** (500,736 timesteps)
+  reaches only 34 total reward with 50 % collisions, far behind PPO (291, 0 %).
+  A **zero-shot evaluation in AirSimNH** (a richer neighbourhood environment)
+  shows that tracking transfers from Blocks but obstacle avoidance does not:
+  collision rates rise to 40-95 %, with PPO generalising best and RecurrentPPO
+  worst.
 
 ## 2. Training budget: 1M + 1M instead of 5M + 5M
 
@@ -174,7 +181,7 @@ measures progress relative to it.
 
 ### 5.4 `scripts/07_evaluate_all.py` - RecurrentPPO rows
 
-Adds RecurrentPPO stages 0 and 1 to `CONFIGS` (using `final_model.zip` +
+Adds RecurrentPPO stages 0 and 1 (and later stage 2) to `CONFIGS` (using `final_model.zip` +
 `vecnormalize.pkl`, or the latest checkpoint + its VecNormalize stats if a run
 had not finished) and prints the evaluated checkpoint path. Evaluation
 methodology and CSV format are unchanged.
@@ -240,7 +247,97 @@ table.
   are shorter (11 vs 21 steps), but both runs collide in 100 % of episodes, so
   the stage-2 conclusion is unchanged.
 
-## 8. Caveats
+## 8. Later additions
+
+### 8.1 RecurrentPPO stage 2
+
+Trained 2026-10-22 05:10-17:56 (one attempt, no simulator crash) with
+`09_train_with_retry.sh`, continuing from the stage-1 final model and its
+VecNormalize stats: 500,736 timesteps (2,502,184 cumulative), constant learning
+rate 5e-5 (as for PPO stage 2; stage 1 used 3e-5), ~10.7 steps/s.
+
+Training reward dropped from about +340 (end of stage 1) to about -120 within
+the first 50-100k steps, when the one-step latency and occlusions of stage 2
+took effect, and recovered only partly (50k-step means: -121, -103, -70, -76,
+-55, -11, -35, -30, -13).
+
+Evaluated with `ops/eval_single.py`, which runs exactly the Section 7 protocol
+for one model and adds its row to `checkpoints/eval_results.csv` without
+re-running the others (AirSim episodes are not reproducible run-to-run, so
+re-running would change their numbers):
+
+| Config | Episode length | Total reward | Collision | Centring err | Distance err | Visibility | Smoothness pen. |
+|---|---|---|---|---|---|---|---|
+| SAC 2 | 11.0 +/- 1.5 | 4.8 +/- 5.3 | 100 % | 0.244 | 1.74 | 0.949 | 0.718 |
+| PPO 2 | 300.0 +/- 0.0 | 291.0 +/- 94.2 | 0 % | 0.490 | 1.33 | 0.902 | 1.158 |
+| **RecurrentPPO 2** | 226.7 +/- 90.4 | 34.4 +/- 240.0 | 50 % | 0.592 | 3.09 | 0.856 | 1.233 |
+
+The episodes split into two failure modes: 10/20 end in a collision (most
+after tracking well until then), and 5 of the 10 full-length episodes lose the
+target for long periods (visibility 0.63-0.75, rewards -97 to -540). The LSTM
+did not turn into an advantage under latency and occlusion within this budget.
+`scripts/07_evaluate_all.py` now includes this model.
+
+### 8.2 Zero-shot generalisation to AirSimNH
+
+All models, trained in Blocks only, were evaluated without retraining in
+**AirSimNH** (AirSim v1.7.0 Linux release): a suburban neighbourhood with
+houses, trees, hedges, parked cars and power lines, run with the same
+`settings.json`. Both vehicle pairs spawn on a road; the evaluation pair
+(Drone2) has a birch tree between drone and target spawn. Protocol as in
+Section 7, via `ops/eval_all_to.py`, which writes to
+`checkpoints/eval_results_airsimnh.csv` and leaves the Blocks table untouched.
+Run 2026-10-23 03:47-04:25.
+
+| Config | Episode length | Total reward | Collision | Centring err | Distance err | Visibility | Smoothness pen. |
+|---|---|---|---|---|---|---|---|
+| SAC 0 | 145.3 +/- 110.4 | 220.7 +/- 223.3 | 70 % | 0.253 | 1.81 | 0.977 | 0.303 |
+| SAC 1 | 172.3 +/- 104.2 | 233.4 +/- 155.8 | 70 % | 0.393 | 2.06 | 0.984 | 0.465 |
+| SAC 2 | 8.5 +/- 1.1 | 0.9 +/- 5.5 | 100 % | 0.220 | 1.75 | 0.941 | 0.741 |
+| PPO 0 | 179.0 +/- 121.3 | 305.8 +/- 216.7 | 55 % | 0.258 | 1.43 | 1.000 | 0.147 |
+| PPO 1 | 195.3 +/- 110.6 | 316.2 +/- 186.4 | 50 % | 0.242 | 1.31 | 0.991 | 0.883 |
+| PPO 2 | 226.2 +/- 98.5 | 226.4 +/- 110.1 | 40 % | 0.468 | 1.30 | 0.915 | 1.162 |
+| PPO 3 | 9.2 +/- 1.9 | -1.8 +/- 8.4 | 100 % | 0.329 | 1.55 | 0.881 | 1.807 |
+| RecurrentPPO 0 | 105.2 +/- 77.1 | 158.1 +/- 127.2 | 95 % | 0.257 | 1.49 | 1.000 | 1.488 |
+| RecurrentPPO 1 | 140.8 +/- 96.2 | 210.1 +/- 155.3 | 85 % | 0.257 | 1.31 | 0.992 | 1.736 |
+| RecurrentPPO 2 | 100.0 +/- 74.7 | 70.0 +/- 98.7 | 90 % | 0.488 | 1.86 | 0.903 | 1.446 |
+
+Collision rate, Blocks -> AirSimNH:
+
+| | Stage 0 | Stage 1 | Stage 2 | Stage 3 |
+|---|---|---|---|---|
+| SAC | 10 % -> 70 % | 15 % -> 70 % | 100 % -> 100 % | - |
+| PPO | 0 % -> 55 % | 0 % -> 50 % | 0 % -> 40 % | 100 % -> 100 % |
+| RecurrentPPO | 10 % -> 95 % | 15 % -> 85 % | 50 % -> 90 % | - |
+
+Observations:
+
+- **Tracking transfers.** Distance error, centring error and visibility are
+  almost unchanged (e.g. PPO stage 1: 1.26 -> 1.31 m, visibility 0.99 -> 0.99).
+  This is expected: the observation contains only target bearing, size,
+  visibility, the agent's velocity and the previous action, none of which
+  depends on how the scene looks.
+- **Obstacle avoidance does not transfer.** Every model that completed
+  episodes in Blocks collides in 40-95 % of AirSimNH episodes. The observation
+  contains no obstacle information, and Blocks has few obstacles near the
+  target's path, so the policies never had to learn avoidance. In a
+  diagnostic run of PPO stage 0 (8 episodes), all 4 collisions were with
+  foliage (3) or a power line (1), at about 2.4 m altitude.
+- **Ranking.** PPO generalises best (40-55 %) and RecurrentPPO worst
+  (85-95 %), consistent with RecurrentPPO's jerkier, bang-bang control. PPO
+  stage 2 collides least of all; the noisier curriculum stage may make it more
+  cautious, but this was not investigated.
+- **Models that already failed** in Blocks (SAC 2, PPO 3) still crash within
+  about 10 steps.
+- **RecurrentPPO stage 2's reward rises** (34 -> 70) only because episodes end
+  earlier, before the long target-loss phases that dominate its Blocks score.
+- **Caveat.** The target is moved kinematically (`simSetVehiclePose` with
+  `ignore_collision=True`) and passes through trees and houses, so some
+  collisions are hard for any follower to avoid. The results measure how the
+  Blocks-trained policies cope with a cluttered scene under an unchanged task,
+  not the best achievable collision rate in AirSimNH.
+
+## 9. Caveats
 
 1. **Reconstructed runtime.** The exact original simulator build and the
    original Python environment could not be recovered; Section 4 lists what was
@@ -258,23 +355,24 @@ table.
 5. **Unequal training budgets** across algorithms (Section 2).
 6. **Unseeded training**, as for the baselines: runs are not bit-reproducible.
 
-## 9. Files
+## 10. Files
 
 | Path | Contents |
 |---|---|
-| `checkpoints/rl/active/recurrent_ppo_stage{0,1}/` | `final_model.zip`, `vecnormalize.pkl`, checkpoints every 5,000 steps with `ckpt_vecnormalize_*` (stage 0 checkpoints before 20k lack them) |
+| `checkpoints/rl/active/recurrent_ppo_stage{0,1,2}/` | `final_model.zip`, `vecnormalize.pkl`, checkpoints every 5,000 steps with `ckpt_vecnormalize_*` (stage 0 checkpoints before 20k lack them) |
 | `checkpoints/eval_results.csv` | updated comparison table (this runtime, all algorithms) |
 | `checkpoints/eval_results_original_vm.csv` | original 7-row table from the original VM |
+| `checkpoints/eval_results_airsimnh.csv` | zero-shot evaluation of all models in AirSimNH (Section 8.2) |
 | `checkpoints/fidelity/` | fidelity runs, reset-bug probes, throughput benchmarks |
 | `checkpoints/rl/archive/` | pre-change copies of every modified file; the 5k RecurrentPPO checkpoint from the original VM |
 | `logs/recurrent_ppo_stage0_1/`, `logs/recurrent_ppo_stage1_0/` | TensorBoard logs (SB3 numbers the continued stage-1 run `_0`) |
-| `logs/train_recurrent_ppo_stage{0,1}.out`, `logs/eval_all_final.out` | training and evaluation console output |
+| `logs/train_recurrent_ppo_stage{0,1,2}.out`, `logs/eval_all_final.out`, `logs/eval_recurrent_ppo_stage2.out`, `logs/eval_all_airsimnh.out` | training and evaluation console output |
 | `logs/train_watchdog.log`, `logs/train_chain.log`, `logs/final_eval_runner.log` | operational logs |
-| `ops/` | watchdog, stage chaining and final-evaluation helper scripts |
+| `ops/` | watchdog, stage chaining and evaluation helper scripts (`eval_single.py`, `eval_all_to.py`) |
 | `ISSUE.md` | reset/takeoff issue write-up |
 | `reconstruction_pip_freeze.txt` | Python environment of the rebuilt runtime |
 
-## 10. Reproducing
+## 11. Reproducing
 
 ```bash
 source /mnt/disks/data/aerotail-venv/bin/activate
@@ -285,8 +383,15 @@ bash scripts/09_train_with_retry.sh recurrent_ppo 0 1000000 Drone1 Target1
 bash scripts/09_train_with_retry.sh recurrent_ppo 1 1000000 Drone1 Target1 3e-5 \
     checkpoints/rl/active/recurrent_ppo_stage0/final_model.zip \
     checkpoints/rl/active/recurrent_ppo_stage0/vecnormalize.pkl
+# stage 2, continuing from stage 1
+bash scripts/09_train_with_retry.sh recurrent_ppo 2 500000 Drone1 Target1 5e-5 \
+    checkpoints/rl/active/recurrent_ppo_stage1/final_model.zip \
+    checkpoints/rl/active/recurrent_ppo_stage1/vecnormalize.pkl
 # evaluation (simulator must be running; 09 leaves it running)
 python3 scripts/07_evaluate_all.py
+# zero-shot evaluation in AirSimNH (sim/AirSimNH/ unpacked from the v1.7.0-linux release)
+dashboard/demo.sh stop --all && dashboard/demo.sh start --env nh
+python3 ops/eval_all_to.py checkpoints/eval_results_airsimnh.csv
 ```
 
 Run `ops/train_watchdog.sh` alongside training to recover from simulator
