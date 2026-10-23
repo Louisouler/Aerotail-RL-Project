@@ -13,7 +13,7 @@ Stable-Baselines3 / sb3-contrib (SAC, PPO, RecurrentPPO) over a four-stage obser
 | `dashboard/` | Live monitoring dashboard (Plotly Dash): telemetry, simulator view, run control - see `dashboard/README.md` |
 | `report_package/` | RecurrentPPO report material: results, figures, training curves, TensorBoard logs - see `report_package/README.md` |
 | `RECURRENTPPO_REPORT.md`, `ISSUE.md` | RecurrentPPO write-up and the reset/takeoff bug report |
-| `ops/` | Helper scripts used to run the long training jobs; `eval_single.py` evaluates one model with the `07` protocol and adds its row to `checkpoints/eval_results.csv` |
+| `ops/` | Helper scripts used to run the long training jobs; `eval_single.py` evaluates one model with the `07` protocol and adds its row to `checkpoints/eval_results.csv`; `eval_all_to.py` runs the full `07` evaluation into a separate CSV (used for AirSimNH) |
 | `settings.json` | AirSim settings (two drone/target pairs, ClockSpeed 2) |
 | `reconstruction_pip_freeze.txt` | Python package versions of the training environment |
 
