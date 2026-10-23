@@ -1,0 +1,29 @@
+
+--- Evaluating recurrent_ppo stage 2 ---
+  checkpoint: /mnt/disks/data/aerotail/checkpoints/rl/active/recurrent_ppo_stage2/final_model.zip
+Connected!
+Client Ver:1 (Min Req: 1), Server Ver:1 (Min Req: 1)
+
+  episode  0: steps=222 reward=   236.2 centring=0.473 dist_err=1.654 visibility=0.94 collided=True
+  episode  1: steps=279 reward=   -33.6 centring=0.728 dist_err=4.433 visibility=0.83 collided=True
+  episode  2: steps=300 reward=   267.5 centring=0.486 dist_err=1.120 visibility=0.89 collided=False
+  episode  3: steps=300 reward=   323.3 centring=0.487 dist_err=1.406 visibility=0.94 collided=False
+  episode  4: steps=300 reward=  -375.1 centring=0.940 dist_err=4.472 visibility=0.63 collided=False
+  episode  5: steps= 45 reward=    20.7 centring=0.670 dist_err=1.060 visibility=0.89 collided=True
+  episode  6: steps=118 reward=    87.0 centring=0.465 dist_err=2.683 visibility=0.92 collided=True
+  episode  7: steps=300 reward=   334.3 centring=0.450 dist_err=1.955 visibility=0.95 collided=False
+  episode  8: steps=103 reward=   139.8 centring=0.304 dist_err=1.825 visibility=0.99 collided=True
+  episode  9: steps=300 reward=  -539.5 centring=0.903 dist_err=9.953 visibility=0.65 collided=False
+  episode 10: steps=300 reward=    70.1 centring=0.617 dist_err=1.896 visibility=0.80 collided=False
+  episode 11: steps=200 reward=    66.1 centring=0.605 dist_err=3.840 visibility=0.88 collided=True
+  episode 12: steps=142 reward=   130.6 centring=0.510 dist_err=0.688 visibility=0.90 collided=True
+  episode 13: steps=300 reward=   -96.5 centring=0.828 dist_err=2.878 visibility=0.75 collided=False
+  episode 14: steps=300 reward=   240.5 centring=0.454 dist_err=2.988 visibility=0.91 collided=False
+  episode 15: steps=300 reward=  -374.8 centring=0.777 dist_err=10.006 visibility=0.73 collided=False
+  episode 16: steps= 90 reward=   104.4 centring=0.351 dist_err=0.858 visibility=0.94 collided=True
+  episode 17: steps= 86 reward=    93.0 centring=0.428 dist_err=1.708 visibility=0.95 collided=True
+  episode 18: steps=300 reward=  -245.7 centring=0.892 dist_err=3.920 visibility=0.69 collided=False
+  episode 19: steps=249 reward=   239.6 centring=0.471 dist_err=2.360 visibility=0.94 collided=True
+
+recurrent_ppo stage 2: ep_len 226.7, reward 34.4, dist_err 3.09 m, visibility 0.86, collisions 50 %
+Added to /mnt/disks/data/aerotail/checkpoints/eval_results.csv (backup saved alongside)

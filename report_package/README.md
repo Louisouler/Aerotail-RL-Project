@@ -21,15 +21,31 @@ Evaluation: `scripts/07_evaluate_all.py`, Drone2/Target2, 20 episodes,
 seeds 10000-10019, deterministic actions, all algorithms on the same rebuilt
 runtime.
 
+### Stage 2 (added later)
+
+RecurrentPPO stage 2 was trained for 500,736 timesteps (2,502,184 cumulative) from the stage-1 final
+model and VecNormalize stats (learning rate 5e-5, as for PPO stage 2; model in
+`checkpoints/rl/active/recurrent_ppo_stage2/`) and evaluated with the same
+protocol:
+
+| Stage 2 | RecurrentPPO | PPO | SAC |
+|---|---|---|---|
+| Training (timesteps) | 500,736 | 200,704 | 150,000 |
+| Total reward | 34.4 | 291.0 | 4.8 |
+| Collision rate | 50 % | 0 % | 100 % |
+| Distance error (m) | 3.09 | 1.33 | 1.74 |
+| Visibility ratio | 0.86 | 0.90 | 0.95 |
+
 ## Contents
 
 | Path | What it is |
 |---|---|
 | `RECURRENTPPO_REPORT.md` | Full report: training budget, run, runtime reconstruction, code changes, results, caveats, reproduction |
 | `ISSUE.md` | Write-up of the reset/takeoff bug found on the rebuilt runtime |
-| `results/eval_results.csv` | Final comparison table (all algorithms, rebuilt runtime) - same format as the original table |
+| `results/eval_results.csv` | Final comparison table (all algorithms, rebuilt runtime) - same format as the original table. The `recurrent_ppo` stage 2 row was added later (see below) without re-running the other rows |
 | `results/eval_results_original_vm.csv` | The original 7-row table produced on the original VM, for reference |
 | `results/eval_all_final.out` | Per-episode output of the final evaluation run (reward, steps, errors, collision per episode) |
+| `results/eval_recurrent_ppo_stage2.out` | Per-episode output of the RecurrentPPO stage 2 evaluation (`ops/eval_single.py`, same protocol as `07_evaluate_all.py`) |
 | `models/recurrent_ppo_stage{0,1}/` | Final RecurrentPPO models: `final_model.zip` (stage 0: 1,001,000 timesteps; stage 1: 2,001,448 cumulative) and the matching `vecnormalize.pkl`. Load with `RecurrentPPO.load(...)` and `VecNormalize.load(...)` (set `training=False`, `norm_reward=False` for evaluation) |
 | `tensorboard/` | Raw TensorBoard event files for both stages (`tensorboard --logdir tensorboard`). Stage 0 has three files because training resumed twice after simulator crashes |
 | `training_curves/recurrent_ppo_stage{0,1}_training_curves.csv` | All TensorBoard scalars per rollout (episode reward/length, losses, KL, entropy, explained variance, learning rate, fps) |
