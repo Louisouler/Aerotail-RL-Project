@@ -5,7 +5,7 @@ target-following policy (RecurrentPPO, PPO or SAC): live telemetry charts, a liv
 the simulator window, and optional start/stop of a demo run.
 
 ```
-AirSim Blocks (windowed on Xvfb :99)
+AirSim Blocks or AirSimNH (windowed on Xvfb :99)
    |  RPC (only from the launcher)              |  X display pixels
 scripts/10_dashboard_demo.py                     |
    |  TelemetryWriter.emit(): non-blocking (~17 us/step)
@@ -56,6 +56,7 @@ The launcher needs nothing new (`telemetry.py` uses only the standard library).
 
 ```bash
 /mnt/disks/data/aerotail/dashboard/demo.sh start     # Xvfb :99 -> Blocks (windowed) -> dashboard; skips what is running
+/mnt/disks/data/aerotail/dashboard/demo.sh start --env nh   # same with AirSimNH (houses, trees, parked cars)
 /mnt/disks/data/aerotail/dashboard/demo.sh status
 /mnt/disks/data/aerotail/dashboard/demo.sh restart   # restart the dashboard only
 /mnt/disks/data/aerotail/dashboard/demo.sh stop      # stop the dashboard (add --all for simulator + Xvfb;
@@ -63,7 +64,11 @@ The launcher needs nothing new (`telemetry.py` uses only the standard library).
 ```
 
 `start` prints the SSH tunnel command; then open http://localhost:8050 on your own computer.
-Logs: `runtime/{xvfb,blocks,dashboard}.log`.
+Only one environment runs at a time; to switch, `stop --all` and `start --env <blocks|nh>`.
+AirSimNH is `AirSimNH.zip` from the AirSim v1.7.0-linux GitHub release, unpacked into
+`sim/AirSimNH/`; it uses the same `settings.json`. The models were trained in Blocks only;
+in AirSimNH they track the target as well but collide more often with trees and power lines.
+Logs: `runtime/{xvfb,blocks,airsimnh,dashboard}.log`.
 
 ## Run manually
 
