@@ -70,6 +70,7 @@ def latest_run_files(run_dir):
 
 RPPO_STAGE0_CKPT, RPPO_STAGE0_VECNORM = latest_run_files(f"{CKPT_ROOT}/recurrent_ppo_stage0")
 RPPO_STAGE1_CKPT, RPPO_STAGE1_VECNORM = latest_run_files(f"{CKPT_ROOT}/recurrent_ppo_stage1")
+RPPO_STAGE2_CKPT, RPPO_STAGE2_VECNORM = latest_run_files(f"{CKPT_ROOT}/recurrent_ppo_stage2")
 
 # Every checkpoint to evaluate. Add rows here as new stages/algorithms
 # finish training - existing entries are safe to re-run (they'll just
@@ -87,9 +88,10 @@ CONFIGS = [
          vecnormalize=f"{CKPT_ROOT}/ppo_stage2/vecnormalize.pkl"),
     dict(algo="ppo", stage=3, checkpoint=f"{CKPT_ROOT}/ppo_stage3/final_model.zip",
          vecnormalize=f"{CKPT_ROOT}/ppo_stage3/vecnormalize.pkl"),
-    # RecurrentPPO is deliberately scoped to stages 0-1 only.
+    # RecurrentPPO is trained on stages 0-2 only.
     dict(algo="recurrent_ppo", stage=0, checkpoint=RPPO_STAGE0_CKPT, vecnormalize=RPPO_STAGE0_VECNORM),
     dict(algo="recurrent_ppo", stage=1, checkpoint=RPPO_STAGE1_CKPT, vecnormalize=RPPO_STAGE1_VECNORM),
+    dict(algo="recurrent_ppo", stage=2, checkpoint=RPPO_STAGE2_CKPT, vecnormalize=RPPO_STAGE2_VECNORM),
 ]
 
 
