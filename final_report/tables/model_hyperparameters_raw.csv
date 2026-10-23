@@ -1,0 +1,11 @@
+algo,stage,num_timesteps,learning_rate,gamma,batch_size,n_steps,n_epochs,gae_lambda,clip_range,ent_coef,vf_coef,buffer_size,tau,train_freq,gradient_steps,learning_starts,target_entropy
+sac,0,500000,5e-05,0.99,256,1,,,,auto,,200000,0.005,schedule,1,100,-4.0
+sac,1,300000,3e-05,0.99,256,1,,,,auto,,200000,0.005,schedule,1,100,-4.0
+sac,2,450000,5e-05,0.99,256,1,,,,auto,,200000,0.005,schedule,1,100,-4.0
+ppo,0,200704,0.0003,0.99,256,2048,10,0.95,schedule,0.0,0.5,,,,,,
+ppo,1,301056,3e-05,0.99,256,2048,10,0.95,schedule,0.0,0.5,,,,,,
+ppo,2,501760,5e-05,0.99,256,2048,10,0.95,schedule,0.0,0.5,,,,,,
+ppo,3,802816,5e-05,0.99,256,2048,10,0.95,schedule,0.0,0.5,,,,,,
+recurrent_ppo,0,1001000,0.0003,0.99,128,1024,10,0.95,schedule,0.0,0.5,,,,,,
+recurrent_ppo,1,2001448,3e-05,0.99,128,1024,10,0.95,schedule,0.0,0.5,,,,,,
+recurrent_ppo,2,2502184,5e-05,0.99,128,1024,10,0.95,schedule,0.0,0.5,,,,,,
